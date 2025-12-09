@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+apply from: '../shared/keepUnitySymbols.gradle'
+**APPLY_PLUGINS**
+
+repositories {
+    google()            // REQUIRED for AndroidX AppCompat + Material
+    mavenCentral()      // REQUIRED for AndroidX
+    jcenter()           // Backup repo (deprecated but Unity still uses it)
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Required to fix Theme.AppCompat.NoActionBar
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.protobuf:protobuf-javalite:3.19.4'
+    implementation 'com.google.android.material:material:1.10.0'
+
+    **DEPS**
+}
+
+android {
+    ndkVersion "**NDKVERSION**"
+    namespace "com.unity3d.player"
+    ndkPath "**NDKPATH**"
+    compileSdk **APIVERSION**
+    buildToolsVersion '**BUILDTOOLS**'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    defaultConfig {
+**DEFAULT_CONFIG_SETUP**
+        minSdk 26
+        targetSdk **TARGETSDK**
+        ndk {
+            debugSymbolLevel **DEBUGSYMBOLLEVEL**
+            abiFilters **ABIFILTERS**
+        }
+        versionCode **VERSIONCODE**
+        versionName '**VERSIONNAME**'
+        consumerProguardFiles 'proguard-unity.txt'**USER_PROGUARD**
+    }
+
+    lint {
+        abortOnError false
+    }
+
+    androidResources {
+        noCompress = **BUILTIN_NOCOMPRESS** + unityStreamingAssets.tokenize(', ')
+        ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }
+
+    **PACKAGING**
+}
+
+**IL_CPP_BUILD_SETUP**
+**SOURCE_BUILD_SETUP**
+**EXTERNAL_SOURCES**
