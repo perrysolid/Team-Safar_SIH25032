@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912102303398",
+    "project_id": "jharkhand-ar-guide",
+    "storage_bucket": "jharkhand-ar-guide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912102303398:android:469492648a323e8ceb3667",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.JharkhandARGuide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA_SWr32vaC4WPmrM1Tz_DA_EIWWSfy7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
